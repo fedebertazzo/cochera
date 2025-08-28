@@ -13,10 +13,10 @@ def conectar(ip,usuario,puerto):
     return connection
 
 
-def mostrar_tabla(conexion_db,nombre_tabla):
+def mostrar_dominios(conexion_db,nombre_tabla,dominio):
     with conexion_db:
         with conexion_db.cursor() as cursor:
-            sql = "select * from "+nombre_tabla+";"
+            sql = "select "+ dominio+" from "+nombre_tabla+";"
             cursor.execute(sql)
             resultado = cursor.fetchall()
             print(resultado)
@@ -45,4 +45,4 @@ def ejecutar_sql(conexion_db):
 
 conexion=conectar('127.0.0.1','root',3306)
 # info=ejecutar_sql(conexion)
-crear_tabla(conexion)
+# crear_tabla(conexion)
